@@ -95,10 +95,12 @@
     .nav-item:hover{color:#fff}
     
     .dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);
-      margin-top:24px;opacity:0;visibility:hidden;transition:all .3s;
+      padding-top:16px;opacity:0;visibility:hidden;transition:opacity .3s, visibility .3s;
       pointer-events:none;z-index:100}
     
-    .nav-item:hover .dropdown{opacity:1;visibility:visible;margin-top:16px;pointer-events:auto}
+    .nav-item:hover .dropdown{opacity:1;visibility:visible;pointer-events:auto}
+    
+    .dropdown::before{content:'';position:absolute;top:0;left:0;right:0;height:16px}
     
     .dropdown-content{background:rgba(10,22,40,.98);backdrop-filter:blur(24px);
       border:1px solid rgba(30,127,229,.2);border-radius:20px;
