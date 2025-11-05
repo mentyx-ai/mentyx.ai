@@ -123,7 +123,7 @@
     
     .dropdown-items{display:flex;flex-direction:column;gap:8px}
     
-    .dropdown-item{font-size:14px;color:#94a3b8;transition:color .3s}
+    .dropdown-item{font-size:14px;color:#94a3b8;transition:color .3s;cursor:pointer}
     .dropdown-item:hover{color:#00D4E6}
 
     .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);
@@ -196,7 +196,7 @@
               <div class="dropdown">
                 <div class="dropdown-content">
                   <div class="dropdown-grid">
-                    <div class="dropdown-card">
+                    <div class="dropdown-card" onclick="window.location.href='solutions/origination.html'">
                       <div class="dropdown-icon">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -210,7 +210,7 @@
                       </div>
                     </div>
 
-                    <div class="dropdown-card">
+                    <div class="dropdown-card" onclick="window.location.href='solutions/servicing.html'">
                       <div class="dropdown-icon">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
@@ -225,7 +225,7 @@
                       </div>
                     </div>
 
-                    <div class="dropdown-card">
+                    <div class="dropdown-card" onclick="window.location.href='solutions/collections.html'">
                       <div class="dropdown-icon">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -239,7 +239,7 @@
                       </div>
                     </div>
 
-                    <div class="dropdown-card">
+                    <div class="dropdown-card" onclick="window.location.href='solutions/ai-solutions.html'">
                       <div class="dropdown-icon">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
@@ -287,7 +287,10 @@
 
       <div id="mobileMenu" class="hidden md:hidden border-t border-white/10">
         <div class="px-6 pb-6 flex flex-col gap-3 pt-4">
-          <a href="#solutions" class="text-gray-200 py-2">Solutions</a>
+          <a href="solutions/origination.html" class="text-gray-200 py-2">Origination</a>
+          <a href="solutions/servicing.html" class="text-gray-200 py-2">Servicing</a>
+          <a href="solutions/collections.html" class="text-gray-200 py-2">Collections</a>
+          <a href="solutions/ai-solutions.html" class="text-gray-200 py-2">AI Solutions</a>
           <a href="#platform" class="text-gray-200 py-2">Platform</a>
           <a href="#about" class="text-gray-200 py-2">About Us</a>
           <a href="#blog" class="text-gray-200 py-2">Blog</a>
@@ -526,7 +529,7 @@
       </div>
     </section>
 
-    <section class="py-24">
+    <section id="platform" class="py-24">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
           <div class="inline-flex px-5 py-2.5 rounded-full glass-card text-cyan-300 text-sm font-medium mb-6">
@@ -632,10 +635,10 @@
           <span class="text-2xl font-bold gradient-text">mentyx.ai</span>
         </div>
         <nav class="flex flex-wrap justify-center gap-8 text-sm">
-          <a href="#platform" class="text-gray-400 hover:text-white transition-all">Platform</a>
           <a href="#how-it-works" class="text-gray-400 hover:text-white transition-all">How It Works</a>
-          <a href="#security" class="text-gray-400 hover:text-white transition-all">Security</a>
-          <a href="mailto:contact@mentyx.ai" class="text-gray-400 hover:text-white transition-all">Contact</a>
+          <a href="#platform" class="text-gray-400 hover:text-white transition-all">Security</a>
+          <a href="#demo" class="text-gray-400 hover:text-white transition-all">Contact</a>
+          <a href="mailto:contact@mentyx.ai" class="text-gray-400 hover:text-white transition-all">Email Us</a>
         </nav>
       </div>
       <p class="text-center text-gray-500 text-sm">© 2025 Mentyx.ai • Dublin & Vienna • The Intelligence Behind Every Loan</p>
