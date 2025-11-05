@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog - Mentyx.ai | Loan Origination Insights & Best Practices</title>
+  <meta name="description" content="Expert insights on AI-powered loan origination, asset-based lending trends, case studies, and best practices from Mentyx.ai" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --primary:#1E7FE5; --accent:#00D4E6; --bg:#0A1628;
+      --surface:rgba(30,127,229,.08); --border:rgba(30,127,229,.3);
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    html,body{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+
+    .gradient-mesh{position:fixed;inset:0;z-index:-2;
+      background:radial-gradient(ellipse at 20% 20%, rgba(30,127,229,.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(0,212,230,.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 40%, rgba(10,22,40,.9) 0%, transparent 50%),
+                linear-gradient(135deg,#0A1628 0%,#1a2847 100%)}
+
+    .glass-card{
+      background:linear-gradient(135deg, rgba(30,127,229,.1) 0%, rgba(0,212,230,.05) 100%);
+      backdrop-filter:blur(24px) saturate(180%);
+      border:1px solid rgba(255,255,255,.1);
+      box-shadow:0 8px 32px rgba(0,0,0,0.2);
+      transition:all .4s cubic-bezier(0.4, 0, 0.2, 1);
+      position:relative;overflow:hidden;height:100%}
+    
+    .glass-card::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg, rgba(30,127,229,0.15) 0%, transparent 60%);
+      opacity:0;transition:opacity .4s ease;pointer-events:none}
+    
+    .glass-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 20px 48px rgba(30,127,229,.3);
+      border-color:rgba(0,212,230,.4)}
+    
+    .glass-card:hover::before{opacity:1}
+
+    .gradient-text{
+      background:linear-gradient(135deg,#1E7FE5 0%, #00D4E6 100%);
+      background-size:200% 200%;
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+      animation:gradientFlow 4s ease infinite}
+    
+    @keyframes gradientFlow{
+      0%,100%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+    }
+
+    .nav-blur{backdrop-filter:blur(24px) saturate(180%);
+      background:rgba(10,22,40,.85);border-bottom:1px solid rgba(30,127,229,.15)}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+      border-radius:12px;padding:.875rem 1.75rem;font-weight:600;font-size:15px;
+      transition:all .3s ease;position:relative;overflow:hidden;cursor:pointer}
+    
+    .btn-primary{background:linear-gradient(135deg,#1E7FE5 0%,#00D4E6 100%);
+      box-shadow:0 4px 16px rgba(30,127,229,.4);
+      color:white;border:none}
+    
+    .btn-primary:hover{box-shadow:0 6px 24px rgba(30,127,229,.6);
+      transform:translateY(-2px)}
+
+    .logo-container{display:flex;align-items:center;gap:12px}
+    .logo-svg{width:36px;height:36px;filter:drop-shadow(0 0 16px rgba(30,127,229,0.4))}
+
+    .category-tag{display:inline-flex;align-items:center;padding:6px 16px;
+      background:rgba(30,127,229,.12);border:1px solid rgba(30,127,229,.35);
+      border-radius:20px;font-size:11px;font-weight:700;color:#00D4E6;
+      text-transform:uppercase;letter-spacing:.8px;
+      transition:all .3s}
+    .category-tag:hover{background:rgba(30,127,229,.2);border-color:rgba(0,212,230,.5);
+      transform:translateY(-1px)}
+
+    .blog-card{
+      background:linear-gradient(135deg, rgba(30,127,229,.08) 0%, rgba(0,212,230,.04) 100%);
+      backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      overflow:hidden;transition:all .4s;cursor:pointer;height:100%;
+      display:flex;flex-direction:column}
+    
+    .blog-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 20px 40px rgba(30,127,229,.25);
+      border-color:rgba(0,212,230,.3)}
+    
+    .blog-card:hover .blog-image{transform:scale(1.05)}
+
+    .blog-image{
+      width:100%;aspect-ratio:16/9;
+      background:linear-gradient(135deg, rgba(30,127,229,.2) 0%, rgba(0,212,230,.15) 100%);
+      display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;
+      transition:transform .6s cubic-bezier(0.4, 0, 0.2, 1)}
+    
+    .blog-image::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(circle at 30% 40%, rgba(30,127,229,.3) 0%, transparent 70%);
+      animation:shimmer 8s ease-in-out infinite}
+    
+    @keyframes shimmer{
+      0%,100%{opacity:.6;transform:scale(1) translate(0,0)}
+      50%{opacity:.8;transform:scale(1.1) translate(5%,5%)}
+    }
+
+    .featured-card{
+      background:linear-gradient(135deg, rgba(30,127,229,.15) 0%, rgba(0,212,230,.08) 100%);
+      backdrop-filter:blur(32px);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:24px;
+      overflow:hidden;transition:all .5s;position:relative}
+    
+    .featured-badge{
+      position:absolute;top:24px;right:24px;
+      padding:8px 20px;
+      background:linear-gradient(135deg,#1E7FE5,#00D4E6);
+      border-radius:20px;font-size:11px;font-weight:900;letter-spacing:1px;
+      box-shadow:0 4px 16px rgba(30,127,229,.6);z-index:10;
+      text-transform:uppercase}
+    
+    .featured-card:hover{
+      transform:translateY(-12px);
+      box-shadow:0 30px 60px rgba(30,127,229,.4);
+      border-color:rgba(0,212,230,.5)}
+
+    .filter-btn{
+      padding:12px 28px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:30px;
+      color:#94a3b8;font-weight:600;font-size:14px;cursor:pointer;
+      transition:all .3s;white-space:nowrap}
+    
+    .filter-btn:hover{
+      background:rgba(30,127,229,.15);
+      border-color:rgba(30,127,229,.4);
+      color:#fff;transform:translateY(-2px)}
+    
+    .filter-btn.active{
+      background:linear-gradient(135deg,rgba(30,127,229,.25),rgba(0,212,230,.2));
+      border-color:rgba(0,212,230,.5);
+      color:#00D4E6;
+      box-shadow:0 4px 16px rgba(30,127,229,.3)}
+
+    .search-box{
+      width:100%;max-width:600px;padding:16px 28px 16px 56px;
+      background:rgba(30,127,229,.08);border:2px solid rgba(30,127,229,.25);
+      border-radius:50px;color:#fff;font-size:15px;transition:all .3s;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%2300D4E6' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;background-position:20px center;background-size:20px}
+    
+    .search-box:focus{
+      outline:none;border-color:rgba(0,212,230,.5);
+      box-shadow:0 0 0 4px rgba(0,212,230,.1);background-color:rgba(30,127,229,.12)}
+    
+    .search-box::placeholder{color:#64748b}
+
+    .carousel-container{position:relative;overflow:hidden;padding:40px 0}
+    
+    .carousel-track{display:flex;gap:32px;animation:scroll 45s linear infinite;
+      will-change:transform}
+    
+    .carousel-track:hover{animation-play-state:paused}
+    
+    @keyframes scroll{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(calc(-50%))}
+    }
+    
+    .carousel-item{min-width:400px;flex-shrink:0}
+
+    .section-divider{
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(30,127,229,.3),transparent);
+      margin:80px 0}
+
+    .icon-wrapper{
+      width:64px;height:64px;border-radius:16px;
+      background:linear-gradient(135deg, rgba(30,127,229,.2) 0%, rgba(0,212,230,.15) 100%);
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(30,127,229,.3);
+      transition:all .4s}
+    
+    .blog-card:hover .icon-wrapper{
+      transform:scale(1.1) rotate(5deg);
+      box-shadow:0 8px 24px rgba(30,127,230,.3)}
+
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+    
+    .stat-card{
+      background:linear-gradient(135deg, rgba(30,127,229,.1) 0%, rgba(0,212,230,.05) 100%);
+      backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;padding:24px;text-align:center;
+      transition:all .3s}
+    
+    .stat-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 30px rgba(30,127,229,.2)}
+    
+    .trending-badge{
+      position:absolute;top:16px;left:16px;
+      background:linear-gradient(135deg,#ff6b6b,#ff8e8e);
+      color:white;padding:4px 12px;border-radius:12px;
+      font-size:10px;font-weight:700;text-transform:uppercase;
+      box-shadow:0 4px 12px rgba(255,107,107,.4)}
+    
+    .author-avatar{
+      width:40px;height:40px;border-radius:50%;
+      background:linear-gradient(135deg,#1E7FE5,#00D4E6);
+      display:flex;align-items:center;justify-content:center;
+      color:white;font-weight:bold;font-size:14px}
+    
+    .read-time{
+      display:flex;align-items:center;gap:6px;
+      color:#94a3b8;font-size:12px;font-weight:500}
+    
+    .content-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
+      gap:32px}
+    
+    .section-header{
+      display:flex;align-items:end;justify-content:space-between;
+      margin-bottom:48px;flex-wrap:wrap;gap:16px}
+    
+    .section-title{font-size:2.5rem;font-weight:900;line-height:1.1}
+    
+    .view-all{
+      display:inline-flex;align-items:center;gap:8px;
+      color:#00D4E6;font-weight:600;font-size:14px;
+      transition:all .3s;padding:8px 0}
+    
+    .view-all:hover{gap:12px;color:#1E7FE5}
+
+    @media (max-width: 768px) {
+      .carousel-item{min-width:320px}
+      .featured-badge{top:16px;right:16px;font-size:9px;padding:6px 16px}
+      .section-header{flex-direction:column;align-items:start}
+      .content-grid{grid-template-columns:1fr}
+      .section-title{font-size:2rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="gradient-mesh"></div>
+
+  <header class="fixed inset-x-0 top-0 z-50 nav-blur">
+    <nav class="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+      <div class="flex items-center justify-between">
+        <a href="../index.html" class="logo-container">
+          <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#1E7FE5;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#00D4E6;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <path d="M 150 33.75 L 247.5 86.25 Q 255 90 255 99 L 255 201 Q 255 210 247.5 213.75 L 150 266.25 Q 146.25 268.5 142.5 266.25 L 52.5 213.75 Q 45 210 45 201 L 45 99 Q 45 90 52.5 86.25 L 142.5 33.75 Q 146.25 31.5 150 33.75 Z" fill="url(#grad1)"/>
+            <g fill="white">
+              <path d="M 82.5 108.75 L 82.5 210 L 116.25 210 L 116.25 150 L 150 180 L 183.75 150 L 183.75 210 L 217.5 210 L 217.5 108.75 L 183.75 108.75 L 150 142.5 L 116.25 108.75 Z"/>
+            </g>
+          </svg>
+          <span class="text-xl font-bold tracking-tight">mentyx<span class="gradient-text">.ai</span></span>
+        </a>
+        <a href="../index.html" class="btn btn-primary">
+          <i class="fas fa-arrow-left mr-2"></i>
+          Back to Home
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-32 pb-24">
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-8 mb-20">
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-card text-cyan-300 text-sm font-semibold mb-8">
+          <i class="fas fa-lightbulb"></i>
+          Intelligence Hub
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-black mb-8 leading-tight">
+          Mentyx <span class="gradient-text">Insights</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
+          Expert insights, case studies, and actionable strategies for modern loan origination
+        </p>
+        
+        <!-- Stats -->
+        <div class="stats-grid max-w-4xl mx-auto mb-16">
+          <div class="stat-card">
+            <div class="text-3xl font-black gradient-text mb-2">500+</div>
+            <div class="text-gray-400 text-sm">Lenders Analyzed</div>
+          </div>
+          <div class="stat-card">
+            <div class="text-3xl font-black gradient-text mb-2">60%</div>
+            <div class="text-gray-400 text-sm">Faster Decisions</div>
+          </div>
+          <div class="stat-card">
+            <div class="text-3xl font-black gradient-text mb-2">90%</div>
+            <div class="text-gray-400 text-sm">Error Reduction</div>
+          </div>
+          <div class="stat-card">
+            <div class="text-3xl font-black gradient-text mb-2">$2B+</div>
+            <div class="text-gray-400 text-sm">Deals Processed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-16">
+        <div class="relative w-full md:flex-1">
+          <input type="text" class="search-box" placeholder="Search articles, case studies, and guides..." id="searchBox" />
+        </div>
+        
+        <div class="flex flex-wrap gap-3 justify-center">
+          <button class="filter-btn active" data-category="all">All Content</button>
+          <button class="filter-btn" data-category="case-study">Case Studies</button>
+          <button class="filter-btn" data-category="research">Research</button>
+          <button class="filter-btn" data-category="guide">Guides</button>
+          <button class="filter-btn" data-category="best-practices">Best Practices</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-8 mb-24">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title gradient-text">Featured Insight</h2>
+          <p class="text-gray-400 text-lg mt-2">Deep dive into the latest industry research</p>
+        </div>
+        <a href="#" class="view-all">
+          View All Featured
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <article class="featured-card" data-category="research">
+        <div class="featured-badge">
+          <i class="fas fa-star mr-2"></i>
+          Featured
+        </div>
+        <div class="grid md:grid-cols-2 gap-0">
+          <div class="blog-image" style="aspect-ratio:1/1">
+            <div class="icon-wrapper" style="width:96px;height:96px">
+              <i class="fas fa-chart-bar text-cyan-400 text-4xl"></i>
+            </div>
+          </div>
+          <div class="p-12 flex flex-col justify-center">
+            <div class="flex items-center gap-4 mb-6 flex-wrap">
+              <span class="category-tag">Industry Research</span>
+              <span class="text-gray-500 text-sm font-medium">March 15, 2025</span>
+              <div class="read-time">
+                <i class="far fa-clock"></i>
+                <span>12 min read</span>
+              </div>
+            </div>
+            <h2 class="text-4xl font-black mb-6 text-white leading-tight">
+              The State of Loan Origination 2025: How AI is Reshaping Asset-Based Lending
+            </h2>
+            <p class="text-gray-300 mb-8 leading-relaxed text-lg">
+              Comprehensive analysis of 500+ lenders reveals how AI automation cuts decision times by 60% and reduces document errors by 90%. Download the full research with actionable benchmarks.
+            </p>
+            <div class="flex items-center justify-between flex-wrap gap-4">
+              <div class="flex items-center gap-4">
+                <div class="author-avatar">MT</div>
+                <div>
+                  <div class="text-sm font-bold text-white">Mentyx Research Team</div>
+                  <div class="text-xs text-gray-500">Research & Analytics</div>
+                </div>
+              </div>
+              <button class="text-cyan-300 font-bold hover:gap-3 gap-2 transition-all inline-flex items-center text-lg">
+                Read Report
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
+    <!-- Case Studies Carousel -->
+    <section class="mb-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Success Stories</h2>
+            <p class="text-gray-400 text-lg mt-2">Real results from lenders transforming their operations</p>
+          </div>
+          <a href="#" class="view-all">
+            View All Case Studies
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <!-- Case Study Cards -->
+          <article class="blog-card carousel-item" data-category="case-study">
+            <div class="trending-badge">
+              <i class="fas fa-fire mr-1"></i>
+              Trending
+            </div>
+            <div class="blog-image">
+              <div class="icon-wrapper">
+                <i class="fas fa-trophy text-cyan-400 text-2xl"></i>
+              </div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <span class="category-tag">Case Study</span>
+                <div class="read-time">
+                  <i class="far fa-clock"></i>
+                  <span>8 min read</span>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-3 text-white">
+                Heritage Capital: From 5 Days to 8 Hours
+              </h3>
+              <p class="text-gray-400 mb-6 leading-relaxed text-sm flex-1">
+                Mid-sized lender cuts underwriting time by 65% and processes $50M annually with just a 3-person team.
+              </p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="author-avatar text-xs">HC</div>
+                <button class="text-cyan-300 font-semibold hover:gap-2 gap-1 transition-all inline-flex items-center text-sm">
+                  Read Story
+                  <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card carousel-item" data-category="case-study">
+            <div class="blog-image">
+              <div class="icon-wrapper">
+                <i class="fas fa-chart-line text-cyan-400 text-2xl"></i>
+              </div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <span class="category-tag">Case Study</span>
+                <div class="read-time">
+                  <i class="far fa-clock"></i>
+                  <span>10 min read</span>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-3 text-white">
+                Scaling to $500M with a Lean Team
+              </h3>
+              <p class="text-gray-400 mb-6 leading-relaxed text-sm flex-1">
+                Regional CRE fund achieves 10x growth without proportional headcount increase using intelligent automation.
+              </p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="author-avatar text-xs">RC</div>
+                <button class="text-cyan-300 font-semibold hover:gap-2 gap-1 transition-all inline-flex items-center text-sm">
+                  Read Story
+                  <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="blog-card carousel-item" data-category="case-study">
+            <div class="blog-image">
+              <div class="icon-wrapper">
+                <i class="fas fa-bullseye text-cyan-400 text-2xl"></i>
+              </div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <span class="category-tag">Case Study</span>
+                <div class="read-time">
+                  <i class="far fa-clock"></i>
+                  <span>7 min read</span>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-3 text-white">
+                Winning 68% of Competitive Deals
+              </h3>
+              <p class="text-gray-400 mb-6 leading-relaxed text-sm flex-1">
+                Bridge lender transforms speed into competitive advantage with same-day approvals and real-time updates.
+              </p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="author-avatar text-xs">BL</div>
+                <button class="text-cyan-300 font-semibold hover:gap-2 gap-1 transition-all inline-flex items-center text-sm">
+                  Read Story
+                  <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Duplicates for seamless carousel -->
+          <article class="blog-card carousel-item" data-category="case-study">
+            <div class="blog-image">
+              <div class="icon-wrapper">
+                <i class="fas fa-trophy text-cyan-400 text-2xl"></i>
+              </div>
+            </div>
+            <div class="p-8 flex-1 flex flex-col">
+              <div class="flex items-center justify-between mb-4">
+                <span class="category-tag">Case Study</span>
+                <div class="read-time">
+                  <i class="far fa-clock"></i>
+                  <span>8 min read</span>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-3 text-white">
+                Heritage Capital: From 5 Days to 8 Hours
+              </h3>
+              <p class="text-gray-400 mb-6 leading-relaxed text-sm flex-1">
+                Mid-sized lender cuts underwriting time by 65% and processes $50M annually with just a 3-person team.
+              </p>
+              <div class="flex items-center justify-between mt-auto">
+                <div class="author-avatar text-xs">HC</div>
+                <button class="text-cyan-300 font-semibold hover:gap-2 gap-1 transition-all inline-flex items-center text-sm">
+                  Read Story
+                  <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
+    <!-- Guides & Research Grid -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Guides & Research</h2>
+          <p class="text-gray-400 text-lg mt-2">Expert insights and actionable strategies</p>
+        </div>
+        <a href="#" class="view-all">
+          View All Articles
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="content-grid" id="blogGrid">
+        <!-- Guide Card -->
+        <article class="blog-card" data-category="guide">
+          <div class="blog-image">
+            <div class="icon-wrapper">
+              <i class="fas fa-book-open text-cyan-400 text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+              <span class="category-tag">Complete Guide</span>
+              <div class="read-time">
+                <i class="far fa-clock"></i>
+                <span>15 min read</span>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-white">
+              Automating Bridge Loan Origination
+            </h3>
+            <p class="text-gray-400 mb-6 leading-relaxed text-sm flex-1">
+              Step-by-step implementation guide for streamlining bridge loan workflows with AI automation.
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <div class="author-avatar text-xs">MG</div>
+              <button class="text-cyan-300 font-semibold hover:gap-2 gap-1 transition-all inline-flex items-center text-sm">
+                Read Guide
+                <i class="fas fa-arrow-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Best Practices Card -->
+        <article class="blog-card" data-category="best-practices">
+          <div class="blog-image">
+            <div class="icon-wrapper">
+              <i class="fas fa-clipboard-check text-cyan-400 text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+              <span class="category-tag">Best Practices</span>
+              <div class="read-time">
+                <i class="far fa-clock"></i>
+                <span>12 min read</span>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-white">
+              Document Intelligence Best Practices
+            </h3>
+            <p class="text-gray-400 mb-6 leading-relaxed text-sm flex-1">
+              How to maximize accuracy and efficiency when implementing AI-powered document extraction systems.
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <div class="author-avatar text-xs">BP</div>
+              <button class="text-cyan-300 font-semibold hover:gap-2 gap-1 transition-all inline-flex items-center text-sm">
+                Read Article
+                <i class="fas fa-arrow-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Research Card -->
+        <article class="blog-card" data-category="research">
+          <div class="blog-image">
+            <div class="icon-wrapper">
+              <i class="fas fa-chart-bar text-cyan-400 text-2xl"></i>
+            </div>
+          </div>
+          <div class="p-8 flex-1 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+              <span class="category-tag">Research</span>
+              <div class="read-time">
+                <i class="far fa-clock"></i>
+                <span>18 min read</span>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-white">
+              2025 Private Lending Benchmarks
+            </h3>
+            <p class="text-gray-400 mb-6 leading-relaxed text-sm flex-1">
+              Industry data on average decision times, document error rates, and operational efficiency metrics.
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <div class="author-avatar text-xs">MR</div>
+              <button class="text-cyan-300 font-semibold hover:gap-2 gap-1 transition-all inline-flex items-center text-sm">
+                View Report
+                <i class="fas fa-arrow-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="max-w-5xl mx-auto px-6 lg:px-8 mt-24">
+      <div class="glass-card rounded-3xl p-12 lg:p-16 text-center">
+        <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center border border-blue-500/30">
+          <i class="fas fa-rocket text-cyan-400 text-3xl"></i>
+        </div>
+        <h2 class="text-4xl lg:text-5xl font-black mb-6">
+          Ready to Transform Your Operations?
+        </h2>
+        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          Join forward-thinking lenders who are cutting decision times by 60% and scaling without proportional headcount growth
+        </p>
+        <button class="btn btn-primary px-12 py-5 text-lg">
+          Schedule Your Demo
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        <p class="text-gray-500 text-sm mt-6">12-minute walkthrough • No commitment required</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-white/10 py-12 mt-24">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-gray-500 text-sm">
+        © 2025 Mentyx.ai • 
+        <a href="../index.html" class="text-cyan-300 hover:underline">Back to Home</a> •
+        <a href="#" class="text-cyan-300 hover:underline ml-4">Privacy Policy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card, .featured-card');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const category = btn.dataset.category;
+        
+        blogCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Search functionality
+    const searchBox = document.getElementById('searchBox');
+    searchBox.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      
+      blogCards.forEach(card => {
+        const title = card.querySelector('h2, h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
