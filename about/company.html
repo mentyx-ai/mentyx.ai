@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Careers — Mentyx.ai</title>
-  <meta name="description" content="Join Mentyx.ai and help build the future of lending. Open positions in engineering, product, and sales." />
+  <title>Company — Mentyx.ai</title>
+  <meta name="description" content="Learn about Mentyx.ai - The intelligence behind every loan. Transforming lending with AI-powered automation." />
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -78,10 +78,14 @@
     ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--primary),var(--accent));
       border-radius:10px}
 
-    .job-card{cursor:pointer}
-    .job-tag{display:inline-block;padding:4px 12px;border-radius:12px;
-      background:rgba(30,127,229,.15);border:1px solid rgba(30,127,229,.3);
-      font-size:13px;color:#93C5FD}
+    .timeline-item{position:relative;padding-left:40px;margin-bottom:40px}
+    .timeline-item::before{content:'';position:absolute;left:0;top:8px;
+      width:20px;height:20px;border-radius:50%;
+      background:linear-gradient(135deg,#1E7FE5,#00D4E6);
+      box-shadow:0 0 20px rgba(30,127,229,0.5)}
+    .timeline-item::after{content:'';position:absolute;left:9px;top:28px;bottom:-40px;
+      width:2px;background:rgba(30,127,229,0.3)}
+    .timeline-item:last-child::after{display:none}
   </style>
 </head>
 <body>
@@ -110,7 +114,7 @@
           <div class="hidden md:flex items-center gap-10">
             <a href="../index.html#solutions" class="nav-item">Solutions</a>
             <a href="../index.html#platform" class="nav-item">Platform</a>
-            <a href="company.html" class="nav-item">About Us</a>
+            <a href="company.html" class="nav-item text-white">About Us</a>
             <a href="../index.html#blog" class="nav-item">Blog</a>
             <a href="../index.html#demo" class="btn btn-primary">Schedule a call</a>
           </div>
@@ -125,20 +129,80 @@
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
           <div class="inline-flex px-5 py-2.5 rounded-full glass-card text-cyan-300 text-sm font-medium mb-6">
-            Careers at Mentyx.ai
+            About Mentyx.ai
           </div>
           <h1 class="text-5xl lg:text-6xl font-black mb-6">
-            Build the Future of <span class="gradient-text">Lending</span>
+            The Intelligence Behind <span class="gradient-text">Every Loan</span>
           </h1>
-          <p class="text-xl text-gray-300 leading-relaxed mb-8">
-            Join a team of builders, thinkers, and problem-solvers transforming a $1 trillion industry with AI.
+          <p class="text-xl text-gray-300 leading-relaxed">
+            We're building the future of lending infrastructure — where every decision is faster, smarter, and more accurate.
           </p>
-          <a href="#open-positions" class="btn btn-primary px-8 py-4">
-            View Open Positions
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div data-aos="fade-up">
+            <h2 class="text-4xl font-black mb-6">Our Mission</h2>
+            <p class="text-xl text-gray-300 mb-6 leading-relaxed">
+              To empower lenders with AI-powered tools that eliminate manual processes, reduce risk, and unlock growth — without sacrificing control or compliance.
+            </p>
+            <p class="text-lg text-gray-400 leading-relaxed">
+              We believe lending should be instant, transparent, and intelligent. Every loan officer deserves technology that works as hard as they do.
+            </p>
+          </div>
+          <div class="glass-card rounded-2xl p-12" data-aos="fade-up" data-aos-delay="200">
+            <div class="space-y-8">
+              <div>
+                <div class="text-5xl font-black gradient-text mb-2">50+</div>
+                <div class="text-gray-400">Lenders using Mentyx</div>
+              </div>
+              <div>
+                <div class="text-5xl font-black gradient-text mb-2">$2B+</div>
+                <div class="text-gray-400">Loans processed</div>
+              </div>
+              <div>
+                <div class="text-5xl font-black gradient-text mb-2">60%</div>
+                <div class="text-gray-400">Faster underwriting</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-24 bg-gradient-to-b from-black/20 to-transparent py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl lg:text-5xl font-black mb-6">Our Story</h2>
+          <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            From frustration to innovation — how we're transforming lending
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-2xl font-bold mb-2">2023 - The Problem</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Our founders spent years in private lending and saw the same problem everywhere: talented underwriters buried in spreadsheets, lenders losing deals to faster competitors, and borrowers frustrated by slow approvals.
+            </p>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-2xl font-bold mb-2">2024 - The Solution</h3>
+            <p class="text-gray-300 leading-relaxed">
+              We built Mentyx.ai to solve this. Not another generic LOS, but a platform designed specifically for asset-based lenders who need speed without sacrificing accuracy.
+            </p>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-2xl font-bold mb-2">2025 - The Future</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Today, we're powering 50+ lenders across North America and Europe. Our AI processes millions in loans every month, and we're just getting started.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -146,7 +210,7 @@
     <section class="mb-24">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center mb-16" data-aos="fade-up">
-          <h2 class="text-4xl lg:text-5xl font-black mb-6">Why Join Mentyx?</h2>
+          <h2 class="text-4xl lg:text-5xl font-black mb-6">Our Values</h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
@@ -156,21 +220,21 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Move Fast</h3>
+            <h3 class="text-2xl font-bold mb-4">Speed with Precision</h3>
             <p class="text-gray-300 leading-relaxed">
-              Ship code that impacts real lenders and borrowers. See your work in production within days, not months.
+              We believe you shouldn't have to choose between fast and accurate. Our AI delivers both.
             </p>
           </div>
 
           <div class="glass-card rounded-2xl p-10" data-aos="fade-up" data-aos-delay="200">
             <div class="w-16 h-16 mb-6 rounded-xl bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center border border-blue-500/30">
               <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Work on Hard Problems</h3>
+            <h3 class="text-2xl font-bold mb-4">Security First</h3>
             <p class="text-gray-300 leading-relaxed">
-              AI, document processing, complex workflows — solve challenges that matter to a massive industry.
+              Your data is your most valuable asset. We treat it that way with bank-grade encryption and compliance.
             </p>
           </div>
 
@@ -180,147 +244,47 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Own Your Work</h3>
+            <h3 class="text-2xl font-bold mb-4">Customer Obsessed</h3>
             <p class="text-gray-300 leading-relaxed">
-              Take ownership from idea to deployment. Your decisions shape the product and the company.
+              We succeed when you succeed. Your feedback shapes every feature we build.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="mb-24 bg-gradient-to-b from-black/20 to-transparent py-24">
+    <section class="mb-24">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16" data-aos="fade-up">
-          <h2 class="text-4xl lg:text-5xl font-black mb-6">Perks & Benefits</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="text-lg font-bold mb-2">Competitive Salary + Equity</h3>
-            <p class="text-gray-400 text-sm">Top-of-market compensation and meaningful ownership</p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="text-lg font-bold mb-2">Remote-First Culture</h3>
-            <p class="text-gray-400 text-sm">Work from anywhere with flexible hours</p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
-            <h3 class="text-lg font-bold mb-2">Health & Wellness</h3>
-            <p class="text-gray-400 text-sm">Premium medical, dental, and vision coverage</p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
-            <h3 class="text-lg font-bold mb-2">Learning Budget</h3>
-            <p class="text-gray-400 text-sm">$2000/year for courses, books, and conferences</p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="500">
-            <h3 class="text-lg font-bold mb-2">Unlimited PTO</h3>
-            <p class="text-gray-400 text-sm">Take the time you need to recharge</p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="600">
-            <h3 class="text-lg font-bold mb-2">Latest Tech</h3>
-            <p class="text-gray-400 text-sm">Top-spec laptop and equipment of your choice</p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="700">
-            <h3 class="text-lg font-bold mb-2">Team Offsites</h3>
-            <p class="text-gray-400 text-sm">Quarterly in-person team gatherings</p>
-          </div>
-
-          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="800">
-            <h3 class="text-lg font-bold mb-2">401(k) Matching</h3>
-            <p class="text-gray-400 text-sm">We match up to 4% of your contributions</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="open-positions" class="mb-24">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16" data-aos="fade-up">
-          <h2 class="text-4xl lg:text-5xl font-black mb-6">Open Positions</h2>
-          <p class="text-xl text-gray-300">Join us in Dublin, Vienna, or remotely</p>
-        </div>
-
-        <div class="max-w-4xl mx-auto space-y-4">
-          <div class="glass-card rounded-2xl p-8 job-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <h3 class="text-2xl font-bold mb-2">Senior Full-Stack Engineer</h3>
-                <div class="flex flex-wrap gap-2 mb-3">
-                  <span class="job-tag">Engineering</span>
-                  <span class="job-tag">Remote / Dublin</span>
-                  <span class="job-tag">Full-time</span>
-                </div>
-                <p class="text-gray-400">Build core platform features with React, Node.js, and Python. Work directly with customers.</p>
+        <div class="glass-card rounded-3xl p-12 lg:p-16" data-aos="fade-up">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-4xl font-black mb-6">Backed by Industry Leaders</h2>
+              <p class="text-xl text-gray-300 mb-6 leading-relaxed">
+                Our investors and advisors include former executives from major financial institutions and successful fintech companies.
+              </p>
+              <p class="text-lg text-gray-400 leading-relaxed">
+                We're supported by people who understand lending from the inside and believe in our vision for a smarter, faster future.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="glass-card rounded-xl p-6 text-center">
+                <div class="text-3xl font-black gradient-text mb-2">10+</div>
+                <div class="text-sm text-gray-400">Years combined lending experience</div>
               </div>
-              <a href="mailto:careers@mentyx.ai?subject=Application: Senior Full-Stack Engineer" class="btn btn-primary px-6 py-3 whitespace-nowrap">
-                Apply Now
-              </a>
+              <div class="glass-card rounded-xl p-6 text-center">
+                <div class="text-3xl font-black gradient-text mb-2">$500M+</div>
+                <div class="text-sm text-gray-400">Portfolio managed by advisors</div>
+              </div>
+              <div class="glass-card rounded-xl p-6 text-center">
+                <div class="text-3xl font-black gradient-text mb-2">5</div>
+                <div class="text-sm text-gray-400">Countries represented</div>
+              </div>
+              <div class="glass-card rounded-xl p-6 text-center">
+                <div class="text-3xl font-black gradient-text mb-2">2</div>
+                <div class="text-sm text-gray-400">Office locations</div>
+              </div>
             </div>
           </div>
-
-          <div class="glass-card rounded-2xl p-8 job-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <h3 class="text-2xl font-bold mb-2">ML Engineer - Document AI</h3>
-                <div class="flex flex-wrap gap-2 mb-3">
-                  <span class="job-tag">AI/ML</span>
-                  <span class="job-tag">Remote / Vienna</span>
-                  <span class="job-tag">Full-time</span>
-                </div>
-                <p class="text-gray-400">Train and deploy models for document processing, OCR, and data extraction.</p>
-              </div>
-              <a href="mailto:careers@mentyx.ai?subject=Application: ML Engineer" class="btn btn-primary px-6 py-3 whitespace-nowrap">
-                Apply Now
-              </a>
-            </div>
-          </div>
-
-          <div class="glass-card rounded-2xl p-8 job-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <h3 class="text-2xl font-bold mb-2">Product Manager</h3>
-                <div class="flex flex-wrap gap-2 mb-3">
-                  <span class="job-tag">Product</span>
-                  <span class="job-tag">Remote / Dublin</span>
-                  <span class="job-tag">Full-time</span>
-                </div>
-                <p class="text-gray-400">Own the product roadmap and work directly with lenders to shape our platform.</p>
-              </div>
-              <a href="mailto:careers@mentyx.ai?subject=Application: Product Manager" class="btn btn-primary px-6 py-3 whitespace-nowrap">
-                Apply Now
-              </a>
-            </div>
-          </div>
-
-          <div class="glass-card rounded-2xl p-8 job-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <h3 class="text-2xl font-bold mb-2">Account Executive</h3>
-                <div class="flex flex-wrap gap-2 mb-3">
-                  <span class="job-tag">Sales</span>
-                  <span class="job-tag">Remote / US</span>
-                  <span class="job-tag">Full-time</span>
-                </div>
-                <p class="text-gray-400">Build relationships with lenders and close deals. Experience in fintech or lending required.</p>
-              </div>
-              <a href="mailto:careers@mentyx.ai?subject=Application: Account Executive" class="btn btn-primary px-6 py-3 whitespace-nowrap">
-                Apply Now
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="500">
-          <p class="text-gray-400 mb-4">Don't see the right role?</p>
-          <a href="mailto:careers@mentyx.ai?subject=General Application" class="btn btn-outline px-8 py-3">
-            Send Us Your Resume
-          </a>
         </div>
       </div>
     </section>
@@ -329,17 +293,22 @@
       <div class="max-w-5xl mx-auto px-6 lg:px-8">
         <div class="glass-card rounded-3xl p-12 text-center" data-aos="fade-up">
           <h2 class="text-4xl font-black mb-6">
-            Ready to make an impact?
+            Join us in transforming lending
           </h2>
           <p class="text-xl text-gray-300 mb-10">
-            Join us in transforming lending for millions of businesses and borrowers
+            See how Mentyx can help your lending operation
           </p>
-          <a href="mailto:careers@mentyx.ai" class="btn btn-primary px-12 py-5 text-lg">
-            Get in Touch
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="../index.html#demo" class="btn btn-primary px-12 py-5 text-lg">
+              Schedule Demo
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="careers.html" class="btn btn-outline px-12 py-5 text-lg">
+              View Open Positions
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -368,7 +337,7 @@
           <a href="../index.html" class="text-gray-400 hover:text-white transition-all">Home</a>
           <a href="company.html" class="text-gray-400 hover:text-white transition-all">Company</a>
           <a href="careers.html" class="text-gray-400 hover:text-white transition-all">Careers</a>
-          <a href="mailto:careers@mentyx.ai" class="text-gray-400 hover:text-white transition-all">Contact</a>
+          <a href="mailto:contact@mentyx.ai" class="text-gray-400 hover:text-white transition-all">Contact</a>
         </nav>
       </div>
       <p class="text-center text-gray-500 text-sm">© 2025 Mentyx.ai • Dublin & Vienna • The Intelligence Behind Every Loan</p>
