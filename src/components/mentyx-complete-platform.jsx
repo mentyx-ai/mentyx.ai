@@ -1,3 +1,6 @@
+"use client";
+
+
 import React, { useState, useEffect } from 'react';
 import { TrendingUp, Clock, CheckCircle2, AlertCircle, FileText, Upload, Search, Filter, Download, Mail, Phone, MapPin, Building, DollarSign, Calendar, Users, BarChart3, Activity, Award, ChevronRight, Eye, RefreshCw, Send, Check, X, Loader, Sparkles, Brain, Shield, Zap, ChevronDown, Home, Briefcase, CreditCard, Settings as SettingsIcon, LogOut } from 'lucide-react';
 
