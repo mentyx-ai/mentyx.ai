@@ -1,3 +1,5 @@
+"use client";
+
 import MentyxPlatform from "@/components/mentyx-complete-platform";
 
 export default function DemoPage() {
