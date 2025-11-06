@@ -1,7 +1,8 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { NextResponse } from 'next/server';
 
-export async function POST(req: Request) {
+export async function POST(req) {
+
   try {
     const client = new Anthropic({
       apiKey: process.env.ANTHROPIC_API_KEY || ''
