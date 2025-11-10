@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resources & Downloads - Whitepapers, Guides & Tools | Mentyx.ai</title>
+  <meta name="description" content="Download free resources: ROI calculators, implementation guides, industry reports, and best practices for loan origination automation." />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <style>
+    :root{
+      --primary:#1E7FE5; --accent:#00D4E6; --bg:#0A1628;
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    html,body{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+
+    .gradient-mesh{position:fixed;inset:0;z-index:-2;background:linear-gradient(135deg,#0A1628 0%,#1a2847 100%)}
+    .gradient-mesh::before{content:"";position:absolute;inset:-50% -50% -50% -50%;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(30,127,229,.18) 0%, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(0,212,230,.15) 0%, transparent 50%);
+      animation:meshMove 28s ease-in-out infinite;
+      filter:blur(60px)}
+    @keyframes meshMove{
+      0%,100%{transform:translate(0,0) rotate(0deg) scale(1)}
+      50%{transform:translate(8%,5%) rotate(180deg) scale(1.1)}
+    }
+
+    .glass-card{background:rgba(30,127,229,.08);backdrop-filter:blur(24px) saturate(180%);
+      border:1px solid rgba(30,127,229,.3);
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
+      transition:all .4s cubic-bezier(0.4, 0, 0.2, 1);
+      position:relative;overflow:hidden;height:100%}
+    
+    .glass-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 20px 48px rgba(30,127,229,.4);
+      border-color:rgba(0,212,230,.4)}
+
+    .gradient-text{
+      background:linear-gradient(135deg,#1E7FE5 0%, #00D4E6 100%);
+      background-size:200% 200%;
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+      animation:gradientFlow 4s ease infinite}
+    
+    @keyframes gradientFlow{
+      0%,100%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+    }
+
+    .nav-blur{backdrop-filter:blur(24px) saturate(180%);
+      background:rgba(10,22,40,.95);border-bottom:1px solid rgba(30,127,229,.15)}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+      border-radius:9999px;padding:.875rem 1.75rem;font-weight:600;font-size:15px;
+      transition:all .3s ease;cursor:pointer;border:none}
+    
+    .btn-primary{background:linear-gradient(135deg,#1E7FE5 0%,#00D4E6 100%);
+      box-shadow:0 4px 16px rgba(30,127,229,.4);color:white}
+    
+    .btn-primary:hover{box-shadow:0 6px 24px rgba(30,127,229,.6);transform:translateY(-2px)}
+
+    .logo-container{display:flex;align-items:center;gap:12px}
+    .logo-svg{width:36px;height:36px;filter:drop-shadow(0 0 16px rgba(30,127,229,0.4))}
+
+    .resource-tag{display:inline-block;padding:6px 16px;border-radius:20px;
+      background:rgba(30,127,229,.15);border:1px solid rgba(30,127,229,.3);
+      font-size:11px;font-weight:700;color:#00D4E6;text-transform:uppercase;letter-spacing:.8px}
+
+    .download-icon{width:64px;height:64px;border-radius:16px;
+      background:rgba(30,127,229,.15);display:flex;align-items:center;
+      justify-content:center;border:1px solid rgba(30,127,229,.2);margin-bottom:20px}
+
+    ::-webkit-scrollbar{width:10px}
+    ::-webkit-scrollbar-track{background:#0A1628}
+    ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--primary),var(--accent));
+      border-radius:10px}
+
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);
+      z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+    .modal.active{display:flex}
+    .modal-content{background:rgba(10,22,40,.98);border:1px solid rgba(30,127,229,.3);
+      border-radius:24px;padding:40px;max-width:500px;width:90%;position:relative;
+      box-shadow:0 20px 60px rgba(0,0,0,.7)}
+    .modal-close{position:absolute;top:20px;right:20px;background:none;border:none;
+      color:#94a3b8;font-size:28px;cursor:pointer;line-height:1;transition:color .3s}
+    .modal-close:hover{color:#fff}
+    
+    input{width:100%;padding:14px 18px;background:rgba(30,127,229,.06);
+      border:1px solid rgba(30,127,229,.25);border-radius:12px;color:#fff;
+      font-family:Inter,sans-serif;font-size:15px;margin-bottom:16px;transition:all .3s}
+    input:focus{outline:none;border-color:rgba(0,212,230,.5);
+      box-shadow:0 0 0 3px rgba(0,212,230,.08)}
+    input::placeholder{color:#64748b}
+    label{display:block;color:#94a3b8;font-size:14px;font-weight:600;margin-bottom:8px}
+
+    .success-message{display:none;text-align:center;padding:30px}
+    .success-message.active{display:block}
+  </style>
+</head>
+<body>
+  <div class="gradient-mesh"></div>
+
+  <header class="fixed inset-x-0 top-0 z-50">
+    <nav class="nav-blur">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between">
+          <a href="index.html" class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#1E7FE5;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#00D4E6;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <path d="M 150 33.75 L 247.5 86.25 Q 255 90 255 99 L 255 201 Q 255 210 247.5 213.75 L 150 266.25 Q 146.25 268.5 142.5 266.25 L 52.5 213.75 Q 45 210 45 201 L 45 99 Q 45 90 52.5 86.25 L 142.5 33.75 Q 146.25 31.5 150 33.75 Z" fill="url(#grad1)"/>
+              <g fill="white">
+                <path d="M 82.5 108.75 L 82.5 210 L 116.25 210 L 116.25 150 L 150 180 L 183.75 150 L 183.75 210 L 217.5 210 L 217.5 108.75 L 183.75 108.75 L 150 142.5 L 116.25 108.75 Z"/>
+              </g>
+            </svg>
+            <span class="text-xl font-bold tracking-tight">mentyx<span class="gradient-text">.ai</span></span>
+          </a>
+          <a href="index.html" class="text-cyan-300 hover:text-white transition-colors font-semibold">← Back to Home</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-32 pb-24">
+    
+    <section class="mb-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+          <div class="inline-flex px-5 py-2.5 rounded-full glass-card text-cyan-300 text-sm font-medium mb-6">
+            Free Resources
+          </div>
+          <h1 class="text-5xl lg:text-6xl font-black mb-6">
+            Resource <span class="gradient-text">Library</span>
+          </h1>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            Download guides, whitepapers, calculators, and reports to accelerate your lending transformation
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Resource -->
+    <section class="mb-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="glass-card rounded-3xl overflow-hidden" data-aos="fade-up">
+          <div class="grid md:grid-cols-2 gap-0">
+            <div class="p-12 flex flex-col justify-center">
+              <span class="resource-tag mb-6">Featured Report • 32 Pages</span>
+              <h2 class="text-4xl font-black mb-6">The State of Loan Origination 2025</h2>
+              <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                Comprehensive industry research analyzing 500+ lenders. Discover how AI automation is cutting decision times by 60% and reducing errors by 90%.
+              </p>
+              <ul class="space-y-3 mb-8">
+                <li class="flex items-start gap-3 text-gray-300">
+                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  Industry benchmarks & performance metrics
+                </li>
+                <li class="flex items-start gap-3 text-gray-300">
+                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  ROI analysis & cost-benefit models
+                </li>
+                <li class="flex items-start gap-3 text-gray-300">
+                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  Implementation roadmap & best practices
+                </li>
+              </ul>
+              <button onclick="openDownloadModal('State of Loan Origination 2025')" class="btn btn-primary px-8 py-4">
+                Download Free Report
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="bg-gradient-to-br from-blue-600/20 to-cyan-600/15 p-12 flex items-center justify-center">
+              <div class="w-32 h-32 rounded-2xl bg-gradient-to-br from-blue-600/30 to-cyan-600/20 flex items-center justify-center border border-blue-500/30">
+                <svg class="w-16 h-16 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculators & Tools -->
+    <section class="mb-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-4xl font-black mb-4">Interactive Tools</h2>
+          <p class="text-xl text-gray-300">Calculate ROI and plan your implementation</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          
+          <div class="glass-card rounded-2xl p-10" data-aos="fade-up" data-aos-delay="100">
+            <div class="download-icon">
+              <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <span class="resource-tag mb-4">Interactive Tool</span>
+            <h3 class="text-2xl font-bold mb-4">ROI Calculator</h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              Input your current loan volume and processing time to calculate potential savings with AI automation. Get instant results with detailed breakdown.
+            </p>
+            <button onclick="openDownloadModal('ROI Calculator')" class="text-cyan-300 font-semibold hover:gap-3 gap-2 transition-all inline-flex items-center">
+              Access Calculator
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-10" data-aos="fade-up" data-aos-delay="200">
+            <div class="download-icon">
+              <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+              </svg>
+            </div>
+            <span class="resource-tag mb-4">Planning Tool</span>
+            <h3 class="text-2xl font-bold mb-4">Implementation Readiness Checklist</h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              45-point checklist covering data migration, team training, workflow mapping, and go-live preparation. Includes timeline estimates.
+            </p>
+            <button onclick="openDownloadModal('Implementation Checklist')" class="text-cyan-300 font-semibold hover:gap-3 gap-2 transition-all inline-flex items-center">
+              Download Checklist
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides & Whitepapers -->
+    <section class="mb-24 bg-gradient-to-b from-black/20 to-transparent py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-4xl font-black mb-4">Guides & Whitepapers</h2>
+          <p class="text-xl text-gray-300">In-depth resources for lending professionals</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          
+          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+            <div class="download-icon">
+              <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <span class="resource-tag mb-4">Guide • 18 Pages</span>
+            <h3 class="text-xl font-bold mb-3">Complete Guide to Bridge Loan Automation</h3>
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+              Step-by-step implementation guide for automating bridge loan workflows with AI.
+            </p>
+            <button onclick="openDownloadModal('Bridge Loan Guide')" class="text-cyan-300 font-semibold text-sm hover:gap-2 gap-1 transition-all inline-flex items-center">
+              Download Guide
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="download-icon">
+              <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <span class="resource-tag mb-4">Whitepaper • 24 Pages</span>
+            <h3 class="text-xl font-bold mb-3">Document Intelligence Best Practices</h3>
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+              How to maximize accuracy with AI-powered document extraction systems.
+            </p>
+            <button onclick="openDownloadModal('Document Intelligence Whitepaper')" class="text-cyan-300 font-semibold text-sm hover:gap-2 gap-1 transition-all inline-flex items-center">
+              Download Paper
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
+            <div class="download-icon">
+              <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <span class="resource-tag mb-4">Guide • 16 Pages</span>
+            <h3 class="text-xl font-bold mb-3">Compliance Checklist for Lenders</h3>
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+              Ensure regulatory compliance with automated workflows and audit trails.
+            </p>
+            <button onclick="openDownloadModal('Compliance Guide')" class="text-cyan-300 font-semibold text-sm hover:gap-2 gap-1 transition-all inline-flex items-center">
+              Download Checklist
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="400">
+            <div class="download-icon">
+              <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            </div>
+            <span class="resource-tag mb-4">Report • 28 Pages</span>
+            <h3 class="text-xl font-bold mb-3">Private Lending Benchmarks 2025</h3>
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+              Industry data on decision times, error rates, and operational efficiency.
+            </p>
+            <button onclick="openDownloadModal('Benchmarks Report')" class="text-cyan-300 font-semibold text-sm hover:gap-2 gap-1 transition-all inline-flex items-center">
+              View Report
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="500">
+            <div class="download-icon">
+              <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            <span class="resource-tag mb-4">eBook • 42 Pages</span>
+            <h3 class="text-xl font-bold mb-3">AI Underwriting Playbook</h3>
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+              Everything you need to implement AI-powered underwriting decisions.
+            </p>
+            <button onclick="openDownloadModal('AI Underwriting Playbook')" class="text-cyan-300 font-semibold text-sm hover:gap-2 gap-1 transition-all inline-flex items-centers">
+              Download eBook
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="glass-card rounded-2xl p-8" data-aos="fade-up" data-aos-delay="600">
+            <div class="download-icon">
+              <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <span class="resource-tag mb-4">Case Study • 8 Pages</span>
+            <h3 class="text-xl font-bold mb-3">$50M Portfolio with 3-Person Team</h3>
+            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+              How Heritage Capital scaled operations 10x without proportional headcount.
+            </p>
+            <button onclick="openDownloadModal('Heritage Capital Case Study')" class="text-cyan-300 font-semibold text-sm hover:gap-2 gap-1 transition-all inline-flex items-center">
+              Read Case Study
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="mb-24">
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <div class="glass-card rounded-3xl p-12 text-center" data-aos="fade-up">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center border border-blue-500/30">
+            <svg class="w-10 h-10 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h2 class="text-4xl font-black mb-4">Stay Updated</h2>
+          <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Get the latest resources, industry insights, and product updates delivered monthly
+          </p>
+          <form onsubmit="submitNewsletter(event)" class="max-w-md mx-auto">
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input type="email" id="newsletter_email" placeholder="your@email.com" required class="flex-1" style="margin-bottom:0" />
+              <button type="submit" class="btn btn-primary px-8 py-3 whitespace-nowrap">
+                Subscribe
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </button>
+            </div>
+            <p class="text-gray-500 text-xs mt-4">No spam. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-white/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
+        <div class="logo-container">
+          <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#1E7FE5;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#00D4E6;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <path d="M 150 33.75 L 247.5 86.25 Q 255 90 255 99 L 255 201 Q 255 210 247.5 213.75 L 150 266.25 Q 146.25 268.5 142.5 266.25 L 52.5 213.75 Q 45 210 45 201 L 45 99 Q 45 90 52.5 86.25 L 142.5 33.75 Q 146.25 31.5 150 33.75 Z" fill="url(#grad2)"/>
+            <g fill="white">
+              <path d="M 82.5 108.75 L 82.5 210 L 116.25 210 L 116.25 150 L 150 180 L 183.75 150 L 183.75 210 L 217.5 210 L 217.5 108.75 L 183.75 108.75 L 150 142.5 L 116.25 108.75 Z"/>
+            </g>
+          </svg>
+          <span class="text-2xl font-bold gradient-text">mentyx.ai</span>
+        </div>
+        <nav class="flex flex-wrap justify-center gap-8 text-sm">
+          <a href="index.html" class="text-gray-400 hover:text-white transition-all">Home</a>
+          <a href="contact.html" class="text-gray-400 hover:text-white transition-all">Contact</a>
+          <a href="blog/index.html" class="text-gray-400 hover:text-white transition-all">Blog</a>
+          <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-all">Privacy</a>
+        </nav>
+      </div>
+      <p class="text-center text-gray-500 text-sm">© 2025 Mentyx.ai • Dublin & Vienna • The Intelligence Behind Every Loan</p>
+    </div>
+  </footer>
+
+  <!-- Download Modal -->
+  <div id="downloadModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeDownloadModal()">&times;</button>
+      
+      <div id="downloadFormSection">
+        <h3 class="text-3xl font-bold gradient-text mb-3" id="modalTitle">Download Resource</h3>
+        <p class="text-gray-400 mb-8">Enter your email to receive your free download</p>
+        
+        <form id="downloadForm" onsubmit="submitDownload(event)">
+          <div>
+            <label for="download_name">Full Name</label>
+            <input type="text" id="download_name" name="name" placeholder="John Smith" required />
+          </div>
+          
+          <div>
+            <label for="download_email">Work Email</label>
+            <input type="email" id="download_email" name="email" placeholder="john@company.com" required />
+          </div>
+          
+          <div>
+            <label for="download_company">Company Name</label>
+            <input type="text" id="download_company" name="company" placeholder="Your Lending Company" required />
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-full py-4 text-base">
+            Download Now
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <div id="downloadSuccessSection" class="success-message">
+        <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-600/20 to-emerald-600/20 flex items-center justify-center border border-green-500/30">
+          <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <h3 class="text-3xl font-bold gradient-text mb-4">Download Started!</h3>
+        <p class="text-gray-300 text-base mb-6">
+          Your resource has been sent to <span class="text-cyan-300 font-semibold" id="confirmDownloadEmail"></span>
+        </p>
+        <p class="text-gray-400 mb-8">Check your inbox (and spam folder) for the download link.</p>
+        <button onclick="closeDownloadModal()" class="text-cyan-300 font-semibold hover:text-white transition-colors">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ 
+      duration: 800, 
+      once: true,
+      easing: 'ease-out-cubic',
+      offset: 80
+    });
+
+    let currentResource = '';
+
+    function openDownloadModal(resourceName) {
+      currentResource = resourceName;
+      document.getElementById('modalTitle').textContent = 'Download: ' + resourceName;
+      document.getElementById('downloadModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDownloadModal() {
+      document.getElementById('downloadModal').classList.remove('active');
+      document.body.style.overflow = '';
+      document.getElementById('downloadFormSection').style.display = 'block';
+      document.getElementById('downloadSuccessSection').classList.remove('active');
+      document.getElementById('downloadForm').reset();
+    }
+
+    function submitDownload(event) {
+      event.preventDefault();
+      
+      const formData = new FormData(event.target);
+      const email = formData.get('email');
+      
+      console.log('Download request:', {
+        resource: currentResource,
+        name: formData.get('name'),
+        email: email,
+        company: formData.get('company')
+      });
+      
+      document.getElementById('downloadFormSection').style.display = 'none';
+      document.getElementById('downloadSuccessSection').classList.add('active');
+      document.getElementById('confirmDownloadEmail').textContent = email;
+    }
+
+    function submitNewsletter(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('newsletter_email').value;
+      
+      console.log('Newsletter signup:', { email });
+      
+      alert('Thanks for subscribing! Check your email for confirmation.');
+      event.target.reset();
+    }
+
+    document.getElementById('downloadModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeDownloadModal();
+      }
+    });
+  </script>
+</body>
+</html>
+            
