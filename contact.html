@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Schedule a Demo | Mentyx.ai</title>
+  <meta name="description" content="Get in touch with Mentyx.ai. Schedule a personalized demo, ask questions, or explore how we can transform your loan origination process." />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <style>
+    :root{
+      --primary:#1E7FE5; --accent:#00D4E6; --bg:#0A1628;
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    html,body{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;overflow-x:hidden}
+
+    .gradient-mesh{position:fixed;inset:0;z-index:-2;background:linear-gradient(135deg,#0A1628 0%,#1a2847 100%)}
+    .gradient-mesh::before{content:"";position:absolute;inset:-50% -50% -50% -50%;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(30,127,229,.18) 0%, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(0,212,230,.15) 0%, transparent 50%);
+      animation:meshMove 28s ease-in-out infinite;
+      filter:blur(60px)}
+    @keyframes meshMove{
+      0%,100%{transform:translate(0,0) rotate(0deg) scale(1)}
+      50%{transform:translate(8%,5%) rotate(180deg) scale(1.1)}
+    }
+
+    .glass-card{background:rgba(30,127,229,.08);backdrop-filter:blur(24px) saturate(180%);
+      border:1px solid rgba(30,127,229,.3);
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
+      transition:all .4s cubic-bezier(0.4, 0, 0.2, 1);
+      position:relative;overflow:hidden}
+    
+    .glass-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 20px 48px rgba(30,127,229,.4);
+      border-color:rgba(0,212,230,.4)}
+
+    .gradient-text{
+      background:linear-gradient(135deg,#1E7FE5 0%, #00D4E6 100%);
+      background-size:200% 200%;
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+      animation:gradientFlow 4s ease infinite}
+    
+    @keyframes gradientFlow{
+      0%,100%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+    }
+
+    .nav-blur{backdrop-filter:blur(24px) saturate(180%);
+      background:rgba(10,22,40,.95);border-bottom:1px solid rgba(30,127,229,.15)}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+      border-radius:9999px;padding:.875rem 1.75rem;font-weight:600;font-size:15px;
+      transition:all .3s ease;cursor:pointer;border:none}
+    
+    .btn-primary{background:linear-gradient(135deg,#1E7FE5 0%,#00D4E6 100%);
+      box-shadow:0 4px 16px rgba(30,127,229,.4);color:white}
+    
+    .btn-primary:hover{box-shadow:0 6px 24px rgba(30,127,229,.6);transform:translateY(-2px)}
+
+    .logo-container{display:flex;align-items:center;gap:12px}
+    .logo-svg{width:36px;height:36px;filter:drop-shadow(0 0 16px rgba(30,127,229,0.4))}
+
+    input,textarea,select{width:100%;padding:16px 20px;background:rgba(30,127,229,.06);
+      border:1px solid rgba(30,127,229,.25);border-radius:12px;color:#fff;
+      font-family:Inter,sans-serif;font-size:15px;margin-bottom:20px;
+      transition:all .3s}
+    input:focus,textarea:focus,select:focus{outline:none;border-color:rgba(0,212,230,.5);
+      box-shadow:0 0 0 3px rgba(0,212,230,.08)}
+    input::placeholder,textarea::placeholder{color:#64748b}
+    label{display:block;color:#94a3b8;font-size:14px;font-weight:600;margin-bottom:8px}
+
+    .contact-method{cursor:pointer;transition:all .3s}
+    .contact-method:hover{transform:translateY(-4px)}
+
+    .success-message{display:none;text-align:center;padding:40px}
+    .success-message.active{display:block}
+
+    ::-webkit-scrollbar{width:10px}
+    ::-webkit-scrollbar-track{background:#0A1628}
+    ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--primary),var(--accent));
+      border-radius:10px}
+  </style>
+</head>
+<body>
+  <div class="gradient-mesh"></div>
+
+  <header class="fixed inset-x-0 top-0 z-50">
+    <nav class="nav-blur">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between">
+          <a href="index.html" class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#1E7FE5;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#00D4E6;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <path d="M 150 33.75 L 247.5 86.25 Q 255 90 255 99 L 255 201 Q 255 210 247.5 213.75 L 150 266.25 Q 146.25 268.5 142.5 266.25 L 52.5 213.75 Q 45 210 45 201 L 45 99 Q 45 90 52.5 86.25 L 142.5 33.75 Q 146.25 31.5 150 33.75 Z" fill="url(#grad1)"/>
+              <g fill="white">
+                <path d="M 82.5 108.75 L 82.5 210 L 116.25 210 L 116.25 150 L 150 180 L 183.75 150 L 183.75 210 L 217.5 210 L 217.5 108.75 L 183.75 108.75 L 150 142.5 L 116.25 108.75 Z"/>
+              </g>
+            </svg>
+            <span class="text-xl font-bold tracking-tight">mentyx<span class="gradient-text">.ai</span></span>
+          </a>
+          <a href="index.html" class="text-cyan-300 hover:text-white transition-colors font-semibold">← Back to Home</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-32 pb-24">
+    
+    <section class="mb-16">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+          <div class="inline-flex px-5 py-2.5 rounded-full glass-card text-cyan-300 text-sm font-medium mb-6">
+            Let's Talk
+          </div>
+          <h1 class="text-5xl lg:text-6xl font-black mb-6">
+            Get in <span class="gradient-text">Touch</span>
+          </h1>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            Schedule a personalized demo, ask questions, or learn how Mentyx can transform your lending operation
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-6 mb-16">
+          
+          <a href="mailto:contact@mentyx.ai" class="glass-card rounded-2xl p-8 contact-method" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-16 h-16 mb-6 rounded-xl bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center border border-blue-500/30">
+              <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Email Us</h3>
+            <p class="text-gray-400 mb-4">For general inquiries and support</p>
+            <p class="text-cyan-300 font-semibold">contact@mentyx.ai</p>
+          </a>
+
+          <div class="glass-card rounded-2xl p-8 contact-method" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-16 h-16 mb-6 rounded-xl bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center border border-blue-500/30">
+              <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Dublin Office</h3>
+            <p class="text-gray-400 mb-4">European headquarters</p>
+            <p class="text-cyan-300 font-semibold">Dublin, Ireland</p>
+          </div>
+
+          <div class="glass-card rounded-2xl p-8 contact-method" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-16 h-16 mb-6 rounded-xl bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center border border-blue-500/30">
+              <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Vienna Office</h3>
+            <p class="text-gray-400 mb-4">Central European hub</p>
+            <p class="text-cyan-300 font-semibold">Vienna, Austria</p>
+          </div>
+
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          
+          <!-- Contact Form -->
+          <div class="glass-card rounded-2xl p-10" data-aos="fade-up" data-aos-delay="400">
+            <div id="formSection">
+              <h2 class="text-3xl font-bold mb-2">Schedule a Demo</h2>
+              <p class="text-gray-400 mb-8">Fill out the form and we'll reach out within 24 hours</p>
+              
+              <form id="contactForm" onsubmit="submitContact(event)">
+                <div>
+                  <label for="name">Full Name *</label>
+                  <input type="text" id="name" name="name" placeholder="John Smith" required />
+                </div>
+                
+                <div>
+                  <label for="email">Work Email *</label>
+                  <input type="email" id="email" name="email" placeholder="john@company.com" required />
+                </div>
+                
+                <div>
+                  <label for="company">Company Name *</label>
+                  <input type="text" id="company" name="company" placeholder="Your Lending Company" required />
+                </div>
+                
+                <div>
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" />
+                </div>
+
+                <div>
+                  <label for="loan_type">Primary Loan Type *</label>
+                  <select id="loan_type" name="loan_type" required>
+                    <option value="">Select loan type...</option>
+                    <option value="bridge">Bridge Loans</option>
+                    <option value="commercial">Commercial Real Estate</option>
+                    <option value="corporate">Corporate Lending</option>
+                    <option value="equipment">Equipment Finance</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="volume">Annual Loan Volume</label>
+                  <select id="volume" name="volume">
+                    <option value="">Select volume...</option>
+                    <option value="under10m">Under $10M</option>
+                    <option value="10m-50m">$10M - $50M</option>
+                    <option value="50m-100m">$50M - $100M</option>
+                    <option value="100m-500m">$100M - $500M</option>
+                    <option value="over500m">Over $500M</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label for="message">What would you like to discuss? *</label>
+                  <textarea id="message" name="message" rows="4" placeholder="Tell us about your current process, pain points, or specific features you're interested in..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-full py-4 text-base">
+                  Submit Request
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </button>
+
+                <p class="text-gray-500 text-xs mt-4 text-center">
+                  By submitting this form, you agree to our privacy policy. We'll never share your information.
+                </p>
+              </form>
+            </div>
+
+            <div id="successSection" class="success-message">
+              <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-600/20 to-emerald-600/20 flex items-center justify-center border border-green-500/30">
+                <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <h3 class="text-3xl font-bold gradient-text mb-4">Request Received!</h3>
+              <p class="text-gray-300 text-lg mb-6">
+                Thank you for your interest in Mentyx.ai. Our team will contact you within 24 hours.
+              </p>
+              <p class="text-gray-400 mb-8">
+                Check your email at <span class="text-cyan-300 font-semibold" id="confirmEmail"></span>
+              </p>
+              <button onclick="resetForm()" class="text-cyan-300 font-semibold hover:text-white transition-colors">
+                Submit Another Request
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Links & Info -->
+          <div data-aos="fade-up" data-aos-delay="500">
+            <div class="glass-card rounded-2xl p-10 mb-6">
+              <h3 class="text-2xl font-bold mb-6">Quick Links</h3>
+              <div class="space-y-4">
+                <a href="resources.html" class="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center">
+                      <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="font-semibold">Download Resources</div>
+                      <div class="text-sm text-gray-400">Whitepapers, guides & reports</div>
+                    </div>
+                  </div>
+                  <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+
+                <a href="blog/index.html" class="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center">
+                      <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="font-semibold">Read Our Blog</div>
+                      <div class="text-sm text-gray-400">Latest insights & case studies</div>
+                    </div>
+                  </div>
+                  <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+
+                <a href="about/careers.html" class="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                  <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center">
+                      <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="font-semibold">Join Our Team</div>
+                      <div class="text-sm text-gray-400">View open positions</div>
+                    </div>
+                  </div>
+                  <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-10">
+              <h3 class="text-2xl font-bold mb-6">What to Expect</h3>
+              <div class="space-y-6">
+                <div class="flex gap-4">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">1</div>
+                  <div>
+                    <div class="font-semibold mb-1">Personalized Demo</div>
+                    <div class="text-sm text-gray-400">12-minute walkthrough tailored to your lending workflow</div>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">2</div>
+                  <div>
+                    <div class="font-semibold mb-1">Technical Q&A</div>
+                    <div class="text-sm text-gray-400">Address integration, security, and compliance questions</div>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">3</div>
+                  <div>
+                    <div class="font-semibold mb-1">Custom Proposal</div>
+                    <div class="text-sm text-gray-400">Receive tailored implementation plan and pricing</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-24 bg-gradient-to-b from-black/20 to-transparent py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-black mb-6">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-4">
+          <details class="glass-card rounded-xl p-6 group" data-aos="fade-up" data-aos-delay="100">
+            <summary class="font-bold text-lg cursor-pointer list-none flex items-center justify-between">
+              <span>How long does implementation take?</span>
+              <svg class="w-5 h-5 text-cyan-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="text-gray-400 mt-4 leading-relaxed">Typical implementation takes 4-8 weeks, including data migration, team training, and workflow customization. We provide dedicated support throughout the entire process.</p>
+          </details>
+
+          <details class="glass-card rounded-xl p-6 group" data-aos="fade-up" data-aos-delay="200">
+            <summary class="font-bold text-lg cursor-pointer list-none flex items-center justify-between">
+              <span>Do you integrate with our existing systems?</span>
+              <svg class="w-5 h-5 text-cyan-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="text-gray-400 mt-4 leading-relaxed">Yes. Mentyx integrates with major CRM platforms, accounting systems, and data providers via API. We'll work with your team to ensure seamless data flow.</p>
+          </details>
+
+          <details class="glass-card rounded-xl p-6 group" data-aos="fade-up" data-aos-delay="300">
+            <summary class="font-bold text-lg cursor-pointer list-none flex items-center justify-between">
+              <span>What security certifications do you have?</span>
+              <svg class="w-5 h-5 text-cyan-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="text-gray-400 mt-4 leading-relaxed">Mentyx is SOC 2 Type II certified and GDPR compliant. We use bank-grade AES-256 encryption, maintain full audit trails, and undergo regular penetration testing.</p>
+          </details>
+
+          <details class="glass-card rounded-xl p-6 group" data-aos="fade-up" data-aos-delay="400">
+            <summary class="font-bold text-lg cursor-pointer list-none flex items-center justify-between">
+              <span>Can we customize workflows and underwriting rules?</span>
+              <svg class="w-5 h-5 text-cyan-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="text-gray-400 mt-4 leading-relaxed">Absolutely. Our no-code decision engine lets you configure approval workflows, scoring rules, and document requirements to match your exact lending policies.</p>
+          </details>
+
+          <details class="glass-card rounded-xl p-6 group" data-aos="fade-up" data-aos-delay="500">
+            <summary class="font-bold text-lg cursor-pointer list-none flex items-center justify-between">
+              <span>What's included in support?</span>
+              <svg class="w-5 h-5 text-cyan-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="text-gray-400 mt-4 leading-relaxed">All plans include email and chat support, dedicated account management, training materials, and quarterly business reviews. Enterprise customers receive priority support with 2-hour response times.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-white/10 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
+        <div class="logo-container">
+          <svg class="logo-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#1E7FE5;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#00D4E6;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <path d="M 150 33.75 L 247.5 86.25 Q 255 90 255 99 L 255 201 Q 255 210 247.5 213.75 L 150 266.25 Q 146.25 268.5 142.5 266.25 L 52.5 213.75 Q 45 210 45 201 L 45 99 Q 45 90 52.5 86.25 L 142.5 33.75 Q 146.25 31.5 150 33.75 Z" fill="url(#grad2)"/>
+            <g fill="white">
+              <path d="M 82.5 108.75 L 82.5 210 L 116.25 210 L 116.25 150 L 150 180 L 183.75 150 L 183.75 210 L 217.5 210 L 217.5 108.75 L 183.75 108.75 L 150 142.5 L 116.25 108.75 Z"/>
+            </g>
+          </svg>
+          <span class="text-2xl font-bold gradient-text">mentyx.ai</span>
+        </div>
+        <nav class="flex flex-wrap justify-center gap-8 text-sm">
+          <a href="index.html" class="text-gray-400 hover:text-white transition-all">Home</a>
+          <a href="about/company.html" class="text-gray-400 hover:text-white transition-all">Company</a>
+          <a href="blog/index.html" class="text-gray-400 hover:text-white transition-all">Blog</a>
+          <a href="resources.html" class="text-gray-400 hover:text-white transition-all">Resources</a>
+          <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-all">Privacy</a>
+        </nav>
+      </div>
+      <p class="text-center text-gray-500 text-sm">© 2025 Mentyx.ai • Dublin & Vienna • The Intelligence Behind Every Loan</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ 
+      duration: 800, 
+      once: true,
+      easing: 'ease-out-cubic',
+      offset: 80
+    });
+
+    function submitContact(event) {
+      event.preventDefault();
+      
+      const formData = new FormData(event.target);
+      const email = formData.get('email');
+      
+      // Log form data (in production, this would send to backend)
+      console.log('Contact form submission:', {
+        name: formData.get('name'),
+        email: email,
+        company: formData.get('company'),
+        phone: formData.get('phone'),
+        loan_type: formData.get('loan_type'),
+        volume: formData.get('volume'),
+        message: formData.get('message')
+      });
+      
+      // Show success message
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('successSection').classList.add('active');
+      document.getElementById('confirmEmail').textContent = email;
+      
+      // Scroll to success message
+      document.getElementById('successSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function resetForm() {
+      document.getElementById('formSection').style.display = 'block';
+      document.getElementById('successSection').classList.remove('active');
+      document.getElementById('contactForm').reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
